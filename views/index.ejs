@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <!-- Get user -->
+    <section class="get-user-form">
+      <form action="">
+        <fieldset>
+          <legend>Get user</legend>
+          <div>
+            <label for="user-id">User ID</label>
+            <input id="user-id" name="user-id" type="number">
+            <button type="">Get user by ID</button>
+          </div>
+          <div>
+            <button id="get-all-users-btn">Get all user</button>
+            <p id="all-users"></p>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Create user -->
+    <section class="create-user-form">
+      <form action="">
+        <fieldset>
+          <legend>Create user</legend>
+          <div>
+            <label for="first-name">First name</label>
+            <input id="first-name" type="text" name="first-name">
+          </div>
+          <div>
+            <label for="last-name">Last name</label>
+            <input id="last-name" type="text" name="last-name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email">
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password">
+          </div>
+          <div>
+            <label for="confirm-password">Confirm password</label>
+            <input id="confirm-password" type="password" name="confirm-password">
+          </div>
+          <button type="">Create user</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Update user data -->
+    <section class="update-user-form">
+      <form action="">
+        <fieldset>
+          <legend>Create user</legend>
+          <div>
+            <label for="update-user-id">User ID</label>
+            <input id="update-user-id" type="text" name="update-user-id">
+          </div>
+          <div>
+            <label for="update-first-name">First name</label>
+            <input id="update-first-name" type="text" name="update-first-name">
+          </div>
+          <div>
+            <label for="update-last-name">Last name</label>
+            <input id="update-last-name" type="text" name="update-last-name">
+          </div>
+          <div>
+            <label for="update-email">Email</label>
+            <input id="update-email" type="email" name="update-email">
+          </div>
+          <div>
+            <label for="update-password">Password</label>
+            <input id="update-password" type="password" name="update-password">
+          </div>
+          <div>
+            <label for="update-confirm-password">Confirm password</label>
+            <input id="update-confirm-password" type="password" name="update-confirm-password">
+          </div>
+          <button type="">Update user data</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Delete user -->
+    <section class="delete-user-form">
+      <form action="">
+        <fieldset>
+          <legend>Delete user</legend>
+          <div>
+            <label for="delete-user-id">User ID</label>
+            <input id="delete-user-id" name="delete-user-id" type="number">
+            <button type="">Delete user</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <script>
+      var getAllUsers = document.getElementById('get-all-users-btn');
+      var responseField = document.getElementById('all-users');
+
+      getAllUsers.onclick = function(e) {
+        e.preventDefault();
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'http://127.0.0.1:3000/api/v1/user', true);
+
+        xhr.send();
+
+        console.log(xhr.responseURL);
+
+        var res = xhr.responseURL;
+      }
+    </script>
+  </body>
+</html>
